@@ -1,3 +1,2 @@
 function trapezoidalSimples(a, b, f) %a e b é o intervalo, f é a função.
     return (b-a)*(f(a)+f(b))/2; %fórmula trapezoidal.
-end
