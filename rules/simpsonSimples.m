@@ -7,4 +7,4 @@ function integral = simpsomSimples(limInf,limSup,func)
     % height: tamanho do sub-intervalo
     height=(limInf-limSup)/2;
 
-    integral=(height/3)*(func(limInf)+4*f(limInf+height)+f(limSup));
+    integral=(height/3)*(func(limInf)+4*func(limInf+height)+func(limSup));

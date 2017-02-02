@@ -1,9 +1,11 @@
-
+addpath('rules');
 %f(x) = 0.2 + 25x - 200x^2 + 675x^3 - 900x^4 + 400x^5
 
-function y=func(x) begin
-    y = 0.2 + 25*x - 200*x^2 + 675*x^3 - 900*x^4 + 400*x^5;
-end
+%function y=func(x) begin
+%    y = 0.2 + 25*x - 200*x^2 + 675*x^3 - 900*x^4 + 400*x^5;
+%end
+
+func = @(x) 0.2 + 25*x - 200*x.^2 + 675*x.^3 - 900*x.^4 + 400*x.^5;
 
 limiteInferior = 0;
 limiteSuperior = 100;
@@ -14,7 +16,7 @@ valorAbsoluto = 1.64053334;
 %limite inferior, limite superior, numero de intervalos se tiver, e a funcao
 
 %Simpson simples
-ssimples = simpsonSimples(limiteInferior, limiteSuperior, n, func);
+ssimples = simpsonSimples(limiteInferior, limiteSuperior, func);
 ssimpleserro = (valorAbsoluto - ssimples)/valorAbsoluto;
 
 %Simpson composto
