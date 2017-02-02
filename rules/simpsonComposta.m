@@ -10,7 +10,7 @@ function limite = simpsonComposta( limInf, limSup , numIntervalo , func )
     
     soma1=0;
     soma2=0;
-    
+    h = (limSup-limInf)/numIntervalo;
     % xi: Valor do intervalo Superior do sub-intervalo
     xi=limInf+height; 
     

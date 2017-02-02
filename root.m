@@ -8,8 +8,8 @@ addpath('rules');
 func = @(x) 0.2 + 25*x - 200*x.^2 + 675*x.^3 - 900*x.^4 + 400*x.^5;
 
 limiteInferior = 0;
-limiteSuperior = 100;
-n = 100;
+limiteSuperior = 0.8;
+n = 100000;
 
 valorAbsoluto = 1.64053334;
 
@@ -24,11 +24,11 @@ scomposto = simpsonComposta(limiteInferior, limiteSuperior, n, func);
 scompostoerro = (valorAbsoluto - scomposto)/valorAbsoluto;
 
 %Simpson tres oitavos
-stres = simpsonTresOitavos(limiteInferior, limiteSuperior, n, func);
+stres = simpsonTresOitavos(limiteInferior, limiteSuperior, func);
 streserro = (valorAbsoluto - stres)/valorAbsoluto;
 
 %trapezoidal simples
-tsimples = trapezoidalSimples(limiteInferior, limiteSuperior, n, func);
+tsimples = trapezoidalSimples(limiteInferior, limiteSuperior, func);
 tsimpleserro = (valorAbsoluto - tsimples)/valorAbsoluto;
 
 %trapezoidal composto

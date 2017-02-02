@@ -9,13 +9,13 @@ function integral = trapezoidalComposta( limInf , limSup, numIntervalo, func)
     height = (limSup - limInf)/numIntervalo;
 
     % xi: Valor do intervalo Superior do sub-intervalo
-    xi = limInf+height;
+    xi = limInf+h;
 
     soma = 0;
 
     for i=1:numIntervalo-1
-        soma = soma+func(xi);
+        soma = soma+f(xi);
         xi=xi+height; 
     end
     
-    integral = height*((func(limInf)+func(limSup))/2+soma);
+    integral = h*((func(limInf)+func(limSup))/2+soma);
