@@ -1,4 +1,4 @@
-function simpson38C(limInf,limSup,numIntervalo, func)
+function simpsonTresOitavos(limInf,limSup,numIntervalo, func)
 result = 0;
 h=(limSup-limInf)/numIntervalo;
 soma1=0;
