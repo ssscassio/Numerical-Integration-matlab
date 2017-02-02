@@ -2,11 +2,11 @@
     % limInf: intervalo Inferior da integração
     % limSup: intervalo Superior da integração
     % func: função para calcular a integral
-function limite = trapezoidalSimples(limInf, limSup, func)
-    % n: numero de sub-intervalos
-    n = 1;
+function integral = trapezoidalSimples(limInf, limSup, func)
+    % numIntervalo: numero de sub-intervalos
+    numIntervalo = 1;
 
     % height: tamanho do sub-intervalo    
-    height = (limSup - limInf)/n;
+    height = (limSup - limInf)/numIntervalo;
 
-    limite = height*(func(limInf)+func(limSup))/2;
+    integral = height*(func(limInf)+func(limSup))/2;

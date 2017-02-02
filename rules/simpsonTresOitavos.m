@@ -1,23 +1,11 @@
-function simpsonTresOitavos(limInf,limSup,numIntervalo, func)
-result = 0;
-h=(limSup-limInf)/numIntervalo;
-soma1=0;
-soma2=0;
-xi=a+h;                                
- 
-barra = waitbar(0,'Calculando...');    
- 
-    for i=1:numIntervalo-1             
-        if rem(i,3)~=0                 
-            soma1=soma1+func(xi);
-            xi=xi+h;
-        else
-            soma2=soma2+func(xi);
-            xi=xi+h;
-        end
-        waitbar(i/ (numIntervalo-1));  
-    end
-    close(barra);
-    result=(3/8)*h*(func(limInf)+3*soma1+2*soma2+func(limSup));
-    return result;
-end
+%Fórmula de Newton-Cotes fechado - Regra de Simpson 3/8
+    % limInf: intervalo Inferior da integração
+    % limSup: intervalo Superior da integração
+    % func: função para calcular a integral
+function integral = simpsonTresoitavos (limInf, limSup, func)
+
+    % height: tamanho do sub-intervalo
+    height=(limInf-limSup)/3;
+
+    %Fórmula para Simpson 3/8 Simples.
+    integral=(3*height/8)*(func(limInf)+3*func(limInf+height)+3*func(limSup-height)+func(limSup));

@@ -1,9 +1,9 @@
-%Fórmula de Newton-Cotes fechado - Regra Trapezoidal Simples 
+%Fórmula de Newton-Cotes fechado - Regra Trapezoidal Composta
     % limInf: intervalo Inferior da integração
     % limSup: intervalo Superior da integração
-    % n: numero de sub-intervalos
+    % numIntervalo: numero de sub-intervalos
     % func: função para calcular a integral
-function limite = trapezoidalComposta( limInf , limSup, n, func)
+function integral = trapezoidalComposta( limInf , limSup, numIntervalo, func)
 
     % height: tamanho do sub-intervalo    
     height = (limSup - limInf)/n;
@@ -13,9 +13,9 @@ function limite = trapezoidalComposta( limInf , limSup, n, func)
 
     soma = 0;
 
-    for i=1:n-1
+    for i=1:numIntervalo-1
         soma = soma+f(xi);
         xi=xi+h; 
     end
     
-    limite = h*((func(limInf)+func(limSup))/2+soma);
+    integral = h*((func(limInf)+func(limSup))/2+soma);
