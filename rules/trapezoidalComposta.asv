@@ -1,5 +1,0 @@
-function trapezoidalComposta (limInf, limSup, n, f) %limInf e limSup são os limites com n intervalos
-h=(limSup - limInf)/2;
-xi=limInf+h 
-
-end

@@ -1,3 +1,12 @@
-function trapezoidalSimples(limInf, limSup, f) %limInf e limSup È o intervalo, f È a funÁ„o.
-    return (limSup-limInf)*(f(limInf)+f(limSup))/2; %fÛrmula trapezoidal.
-end
+%F√≥rmula de Newton-Cotes fechado - Regra Trapezoidal Simples
+    % limInf: intervalo Inferior da integra√ß√£o
+    % limSup: intervalo Superior da integra√ß√£o
+    % func: fun√ß√£o para calcular a integral
+function limite = trapezoidalSimples(limInf, limSup, func)
+    % n: numero de sub-intervalos
+    n = 1;
+
+    % height: tamanho do sub-intervalo    
+    height = (limSup - limInf)/n;
+
+    limite = height*(func(limInf)+func(limSup))/2;
