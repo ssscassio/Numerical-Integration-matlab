@@ -3,7 +3,7 @@
     % limSup: intervalo Superior da integração
     % numIntervalo: numero de sub-intervalos
     % func: função para calcular a integral
-function integral = trapezoidalComposta( limInf , limSup, numIntervalo, func)
+function integral = trapezoidalComposta( limInf , limSup, numIntervalo, func, max, func2)
 
     % height: tamanho do sub-intervalo    
     height = (limSup - limInf)/numIntervalo;
@@ -19,3 +19,8 @@ function integral = trapezoidalComposta( limInf , limSup, numIntervalo, func)
     end
     
     integral = height*((func(limInf)+func(limSup))/2+soma);
+
+    erroEstimado = -numIntervalo*height.^2/12*func2(max);
+    
+    fprintf('\nErro estimado para trapezoidal Composta: %d\n', erroEstimado);
+    

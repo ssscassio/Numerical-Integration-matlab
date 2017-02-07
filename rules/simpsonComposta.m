@@ -3,7 +3,7 @@
     % limSup: intervalo Superior da integração
     % numIntervalo: numero de sub-intervalos
     % func: função para calcular a integral
-function [limite, erroEstimado] = simpsonComposta( limInf, limSup , numIntervalo , func )
+function [limite, erroEstimado] = simpsonComposta( limInf, limSup , numIntervalo , func, max, func4 )
 
     % height: tamanho do sub-intervalo
     height=(limSup-limInf)/numIntervalo;
@@ -25,3 +25,6 @@ function [limite, erroEstimado] = simpsonComposta( limInf, limSup , numIntervalo
     end
 
     limite=(h/3)*(func(limInf)+4*soma1+2*soma2+func(limSup));
+    
+    erroEstimado = -height.^4*(limSup-limInf)/180*func4(max);
+    fprintf('Erro estimado de Simpson Composta: %d\n', erroEstimado);
