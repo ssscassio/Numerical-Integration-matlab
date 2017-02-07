@@ -4,13 +4,11 @@ addpath('rules');
 %function y=func(x) begin
 %    y = 0.2 + 25*x - 200*x^2 + 675*x^3 - 900*x^4 + 400*x^5;
 %end
-limiteInferior = 0;
-limiteSuperior = 0.8;
 
 func = @(x) 0.2 + 25*x - 200*x.^2 + 675*x.^3 - 900*x.^4 + 400*x.^5;
-funcneg = @(x) -0.2 - 25*x + 200*x.^2 - 675*x.^3 + 900*x.^4 - 400*x.^5;
-
-
+derivada4 = diff(diff(diff(diff(fminbnd(-1*func,lim)))));
+limiteInferior = 0;
+limiteSuperior = 0.8;
 n = 100;
 
 valorAbsoluto = 1.64053334;
@@ -28,7 +26,7 @@ scompostoerro = (valorAbsoluto - scomposto)/valorAbsoluto;
 %Simpson tres oitavos
 stres = simpsonTresOitavos(limiteInferior, limiteSuperior, func);
 streserro = (valorAbsoluto - stres)/valorAbsoluto;
-
+erro = -3/80*(derivada4());
 
 %trapezoidal simples
 tsimples = trapezoidalSimples(limiteInferior, limiteSuperior, func);
@@ -38,6 +36,8 @@ tsimpleserro = (valorAbsoluto - tsimples)/valorAbsoluto;
 tcomposto = trapezoidalComposta(limiteInferior, limiteSuperior, n, func);
 tcompostoerro = (valorAbsoluto - tcomposto)/valorAbsoluto;
 
+
+erroEstimado = [];
 %criacao de tabela
 resultado = [ssimples; scomposto; stres; tsimples; tcomposto];
 erro = [ssimpleserro; scompostoerro; streserro; tsimpleserro;tcompostoerro];

@@ -3,10 +3,10 @@
     % limSup: intervalo Superior da integração
     % numIntervalo: numero de sub-intervalos
     % func: função para calcular a integral
-function limite = simpsonComposta( limInf, limSup , numIntervalo , func )
+function [limite, erroEstimado] = simpsonComposta( limInf, limSup , numIntervalo , func )
 
     % height: tamanho do sub-intervalo
-    height=(limInf-limSup)/numIntervalo;
+    height=(limSup-limInf)/numIntervalo;
     
     soma1=0;
     soma2=0;
